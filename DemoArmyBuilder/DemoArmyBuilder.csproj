@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,5 +14,31 @@
     <PackageReference Include="Xenko.UI" Version="3.1.0.1-beta02-0614" />
 
     <PackageReference Include="Xenko.Core.Assets.CompilerApp" Version="3.1.0.1-beta02-0614" IncludeAssets="build;buildTransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Effects\ColorFromCube.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColorFromCube.xksl</DependentUpon>
+    </Compile>
+    <Compile Update="Effects\MultiMeshShader.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MultiMeshShader.xksl</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Effects\ColorFromCube.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>ColorFromCube.cs</LastGenOutput>
+    </None>
+    <None Update="Effects\MultiMeshShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>MultiMeshShader.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

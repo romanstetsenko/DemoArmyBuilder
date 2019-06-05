@@ -17,7 +17,7 @@ type DemoArmyBuilderGame() =
             this.SceneSystem.SceneInstance <- new SceneInstance(this.Services, currentScene) 
             
             (this :> Game)
-            |> Reader.run (Presenter.readUnit imperial)
+            |> Reader.run (Presenter.readUnitEnch imperial)
             |> currentScene.Entities.Add
         )
         |> startAsTask :> Task

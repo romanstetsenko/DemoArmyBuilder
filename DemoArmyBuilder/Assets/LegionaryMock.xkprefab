@@ -21,4 +21,4 @@ Hierarchy:
                         Model: 3165cc56-d966-4183-b0ee-459694131d3a:Cube
                         IsShadowCaster: false
                         Materials:
-                            5020835d4dd475901f042300aadd9554~0: fe6754a7-9d72-4208-8f06-4442375af06a:SimpleMat
+                            5020835d4dd475901f042300aadd9554~0: 18b14f50-d3e9-410b-a3fd-10607adc6a2f:CubeVertexColourMaterial

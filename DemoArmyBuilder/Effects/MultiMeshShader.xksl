@@ -1,0 +1,37 @@
+﻿namespace XenkoByteSized {
+
+    shader MultiMeshShader {
+
+        struct TransformData {
+            float4x4 Matrix;
+        };
+
+        stream uint InstanceID : SV_InstanceID;
+        stream float4 ShadingPosition : SV_Position;
+
+        stream float3 Position : POSITION;
+        stream float3 Normal : NORMAL;
+        stream float Color : COLOR;
+
+        StructuredBuffer<TransformData> ModelTransforms;
+
+        void VSMain() {
+            streams.ShadingPosition = mul(float4(streams.Position, 1), ModelTransforms[streams.InstanceID].Matrix);
+            streams.Normal = mul(float4(streams.Normal, 0), ModelTransforms[streams.InstanceID].Matrix);
+        }
+
+        [StreamOutput("0:SV_Position.xyz;0:NORMAL.xyz;0:COLOR")]
+        [maxvertexcount(3)]
+        void GSMain(triangle Input input[3], inout TriangleStream<Output> vertexStream) {
+            /* we make it explicit that THEY ARE BEING USED or the other fields will be optimized out*/
+            for (int i = 0; i < 3; ++i) {
+                streams.ShadingPosition = input[i].ShadingPosition;
+                streams.Normal = input[i].Normal;
+                streams.Color = input[i].Color;
+                vertexStream.Append(streams);
+            }
+        }
+
+    };
+
+}

@@ -15,6 +15,11 @@ ExplicitFolders: []
 Bundles: []
 TemplateFolders: []
 RootAssets:
+    - 18b14f50-d3e9-410b-a3fd-10607adc6a2f:CubeVertexColourMaterial
+    - 277e4c16-8213-4a5e-ab03-7dd52f73e6af:Cube_2
     - bf17fa14-2b8c-4c17-96d6-c7ca0fe16305:LegionaryMock
+    - cd35da9f-c354-4748-a5ab-106e9ec000f8:Materials/marble/marble
     - e1763361-5387-47ba-8c81-865f32d2e663:Legionary
     - fb8515f4-fe3b-48b9-9257-6328062bf24a:MainScene
+    - fd20b4c6-2785-4f61-8ed4-1a185979f6e8:Materials/brick/brick
+    - fe6754a7-9d72-4208-8f06-4442375af06a:SimpleMat
