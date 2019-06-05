@@ -1,0 +1,22 @@
+!PrefabAsset
+Id: e1763361-5387-47ba-8c81-865f32d2e663
+SerializedVersion: {Xenko: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 215d4969-6093-42c1-b129-1e356b0844c0
+    Parts:
+        -   Entity:
+                Id: 215d4969-6093-42c1-b129-1e356b0844c0
+                Name: mannequinModel
+                Components:
+                    5101074c73388761cf29e908fcaaf81f: !TransformComponent
+                        Id: 837e9795-c287-423d-98b5-0fd34a3df76b
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2d83484dd71b32b1824096cc56ed7692: !ModelComponent
+                        Id: 381fa54d-6559-4699-a41a-05241f619153
+                        Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
+                        Materials: {}

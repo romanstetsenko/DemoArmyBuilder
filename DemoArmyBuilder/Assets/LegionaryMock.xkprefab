@@ -1,0 +1,24 @@
+!PrefabAsset
+Id: bf17fa14-2b8c-4c17-96d6-c7ca0fe16305
+SerializedVersion: {Xenko: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 3b13d1e9-b0e9-4466-a23a-016a9d4a6938
+    Parts:
+        -   Entity:
+                Id: 3b13d1e9-b0e9-4466-a23a-016a9d4a6938
+                Name: Cylinder
+                Components:
+                    1afcc3a26f393f142f9d73512e6f9221: !TransformComponent
+                        Id: d95315d0-e111-4b7f-8369-943d3144a2c5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.5, Y: 1.0, Z: 0.5}
+                        Children: {}
+                    03876760a69ff58ae24b3be1d4763cd4: !ModelComponent
+                        Id: 94518bde-0eee-45e9-8fe0-a4402e51a7d9
+                        Model: 3165cc56-d966-4183-b0ee-459694131d3a:Cube
+                        IsShadowCaster: false
+                        Materials:
+                            5020835d4dd475901f042300aadd9554~0: fe6754a7-9d72-4208-8f06-4442375af06a:SimpleMat

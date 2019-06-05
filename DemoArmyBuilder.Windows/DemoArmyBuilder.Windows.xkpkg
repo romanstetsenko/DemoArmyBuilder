@@ -1,0 +1,20 @@
+!Package
+SerializedVersion: {Assets: 3.1.0.0}
+Meta:
+    Name: DemoArmyBuilder.Windows
+    Version: 1.0.0
+    Authors: []
+    Owners: []
+    Dependencies: null
+AssetFolders:
+    -   Path: !dir Assets
+ResourceFolders:
+    - !dir Resources
+OutputGroupDirectories: {}
+ExplicitFolders: []
+Bundles: []
+TemplateFolders: []
+RootAssets:
+    - bf17fa14-2b8c-4c17-96d6-c7ca0fe16305:LegionaryMock
+    - e1763361-5387-47ba-8c81-865f32d2e663:Legionary
+    - fb8515f4-fe3b-48b9-9257-6328062bf24a:MainScene
