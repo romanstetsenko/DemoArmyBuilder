@@ -154,7 +154,7 @@ namespace DemoArmyBuilder
             commandList.SetPipelineState(pipelineState);
 
             /* TODO: this currently assumes a single vertex buffer, is this always the case? */
-            commandList.SetVertexBuffer(0, vertexBuffer, renderedMesh.Draw.StartLocation, VertexPositionNormalTexture.Layout.VertexStride);
+            commandList.SetVertexBuffer(0, vertexBuffer, renderedMesh.Draw.StartLocation, renderedMesh.Draw.VertexBuffers[0].Stride);
             commandList.SetIndexBuffer(indexBuffer, 0, renderedMesh.Draw.IndexBuffer.Is32Bit);
             commandList.SetStreamTargets(streamOutBufferBinding.Buffer);
 
@@ -162,7 +162,7 @@ namespace DemoArmyBuilder
             streamShader.Apply(Game.GraphicsContext);
 
             /* finally write to our streamout buffer */
-            commandList.DrawIndexedInstanced(indexBuffer.ElementCount, transforms.Count);
+            commandList.DrawIndexedInstanced(indexBuffer.ElementCount == 0 ? indexBuffer.Description.SizeInBytes / 2 : indexBuffer.ElementCount, transforms.Count);
             commandList.SetStreamTargets(null);
 
         }

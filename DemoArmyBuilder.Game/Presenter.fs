@@ -72,20 +72,38 @@ let readGraphicsDevice () =
         ctx.GraphicsDevice
     |> Reader
 
+
 let readUnitEnch u  = 
-    let newMultiMesh (m:Model) = //(entity:Entity) = 
+    let newMultiMesh (model1:Model, model2:Model) = //(entity:Entity) = 
         readMaterial "Materials/marble/marble"//"CubeVertexColourMaterial"
         >>= (fun mat -> 
             readGraphicsDevice()
             |>> (fun graphicsDevice -> 
+                let model1 = model1
+                let model2 = model2
                 let ourPrimitive = GeometricPrimitive.Cube.New(device = graphicsDevice, size = 1.0f)
-                let ourPrimitive2 = GeometricPrimitive.Cube.New( size = 1.0f)
                 let primitiveMeshDraw = ourPrimitive.ToMeshDraw()
-                let mm = PoorMansMultiMesh()
+
+                let ourPrimitive2 = GeometricPrimitive.Cube.New( size = 1.0f)
+                let geom = (new GeometricPrimitive(graphicsDevice, ourPrimitive2)).ToMeshDraw()
+                
                 //let modelMeshDraw = entity.Get<ModelComponent>().Model.Meshes.[0].Draw
-                let rawModelMeshDraw = m.Meshes.[0].Draw
+                
+                //let rawModelMeshDraw = m.Meshes.[0].Draw//.ToMeshDraw()
+                //let geom_mesh = 
+                //    new GeometricMeshData<VertexPositionNormalTexture>(
+                //        [||],//rawModelMeshDraw.VertexBuffers.[0].Buffer , 
+                //        [||],//rawModelMeshDraw.IndexBuffer.Buffer, 
+                //        false)// { Name = "custom_Cube_2" }
+                //let geom_prim = new GeometricPrimitive(graphicsDevice, geom_mesh)
+                //let cust_meshdraw = geom_prim.ToMeshDraw()
+
+                //let modelMeshDraw = model.Meshes.[0].Draw
+                //modelMeshDraw.GenerateIndexBuffer
+                //let count = model2.Meshes |> Seq.sumBy (fun x -> x.Draw.IndexBuffer.Count)
+                let mm = PoorMansMultiMesh()
                 let m = Mesh()
-                m.Draw <- rawModelMeshDraw
+                m.Draw <- model1.Meshes.[0].Draw//geom
                 mm.Mesh <- m
                 mm.Material <- mat
                 mm
@@ -93,6 +111,9 @@ let readUnitEnch u  =
         )
         
     readModel "Cube_2" 
+    >>= fun m1 -> 
+        readModel "Models/mannequinModel" 
+        |>> fun m2 -> (m1,m2)
     >>= newMultiMesh
     >>= (fun (mm:PoorMansMultiMesh) ->  
         readUnit ( mm.AddInstance >> ignore ) u 
